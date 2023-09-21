@@ -1,3 +1,6 @@
+let count = 10;
+let imgRender = false;
+
 let c = document.getElementById("canvas");
 let r = c.getContext("2d");
 let margin = 20;
@@ -32,7 +35,6 @@ for(let i = 0; i < TYPES.length; i++) {
 const THING_SIZE = 16 * 1;
 let things = [];
 const SPEED = 2;
-let imgRender = false;
 
 // object for each rock, paper, or scissors
 function Thing() {
@@ -44,7 +46,6 @@ function Thing() {
 }
 
 // generate rocks, papers, and scissors
-let count = 100;
 count *= 3;
 for(let i = 0; i < count; i++) {
     things.push(new Thing());

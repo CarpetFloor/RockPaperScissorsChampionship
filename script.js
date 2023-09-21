@@ -119,27 +119,27 @@ function update() {
     
             // check for collision
             let distanceCheck = distance(thing.x, thing.y, closest.x, closest.y);
-            if(distanceCheck < (THING_SIZE * 2)) {
+            if(distanceCheck < (THING_SIZE * 1)) {
                 closest.type = thing.type;
                 closest.img = typeImgs.get(closest.type);
-                closest.emoji = typeImgs.get(closest.type);
+                closest.emoji = typeEmojis.get(closest.type);
             }
         }
 
         // don't allow moving out of bounds
 
         if(thing.x < 0 + (THING_SIZE / 2)) {
-            thing.x = 0 + (THING_SIZE / 2);
+            thing.x = 0 + (THING_SIZE);
         }
         if(thing.x > w - (THING_SIZE / 2)) {
-            thing.x = w - (THING_SIZE / 2);
+            thing.x = w - (THING_SIZE);
         }
 
         if(thing.y < 0 + (THING_SIZE / 2)) {
-            thing.y = 0 + (THING_SIZE / 2);
+            thing.y = 0 + (THING_SIZE);
         }
         if(thing.y > h - (THING_SIZE / 2)) {
-            thing.y = h - (THING_SIZE / 2);
+            thing.y = h - (THING_SIZE);
         }
     }
 }

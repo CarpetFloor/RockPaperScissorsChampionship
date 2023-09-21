@@ -1,4 +1,4 @@
-let count = 10;
+let count = 200;
 let imgRender = false;
 
 let c = document.getElementById("canvas");
@@ -41,8 +41,8 @@ function Thing() {
     this.type = TYPES[random(0, 3)];
     this.img = typeImgs.get(this.type);
     this.emoji = typeEmojis.get(this.type);
-    this.x = random(0 + (THING_SIZE / 2), w - (THING_SIZE / 2));
-    this.y = random(0 + (THING_SIZE / 2), h - (THING_SIZE / 2));
+    this.x = random(0 + (THING_SIZE), w - (THING_SIZE));
+    this.y = random(0 + (THING_SIZE), h - (THING_SIZE));
 }
 
 // generate rocks, papers, and scissors

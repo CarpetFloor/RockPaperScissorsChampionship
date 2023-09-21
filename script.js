@@ -44,7 +44,7 @@ function Thing() {
 }
 
 // generate rocks, papers, and scissors
-let count = 2;
+let count = 100;
 count *= 3;
 for(let i = 0; i < count; i++) {
     things.push(new Thing());
@@ -57,6 +57,9 @@ function loop() {
 
     update();
 
+    // for checking if a faction has won
+    let counts = [0, 0, 0];
+
     // render
     for(let thing of things) {
         if(imgRender) {
@@ -65,9 +68,19 @@ function loop() {
         else {
             r.fillText(thing.emoji, thing.x - (THING_SIZE / 2), thing.y - (THING_SIZE / 2))
         }
+
+        counts[TYPES.indexOf(thing.type)] += 1;
+    }
+
+    // check if a faction has won
+    for(let check of counts) {
+        if(check == things.length) {
+            window.clearInterval(loopInterval);
+            break;
+        }
     }
 }
-window.setInterval(loop, 1000 / 30);
+let loopInterval = window.setInterval(loop, 1000 / 30);
 
 function update() {
     for(let thing of things) {
@@ -128,17 +141,17 @@ function update() {
 
         // don't allow moving out of bounds
 
-        if(thing.x < 0 + (THING_SIZE / 2)) {
+        if(thing.x < 0 + (THING_SIZE)) {
             thing.x = 0 + (THING_SIZE);
         }
-        if(thing.x > w - (THING_SIZE / 2)) {
+        if(thing.x > w - (THING_SIZE)) {
             thing.x = w - (THING_SIZE);
         }
 
-        if(thing.y < 0 + (THING_SIZE / 2)) {
+        if(thing.y < 0 + (THING_SIZE)) {
             thing.y = 0 + (THING_SIZE);
         }
-        if(thing.y > h - (THING_SIZE / 2)) {
+        if(thing.y > h - (THING_SIZE)) {
             thing.y = h - (THING_SIZE);
         }
     }
